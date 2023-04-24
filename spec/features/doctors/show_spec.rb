@@ -62,24 +62,19 @@ RSpec.describe 'Doctor Show Page', type: :feature do
 
   it 'when in the doctor show page, I see a button next to each patient name to remove that patient from the doctor' do
     visit doctor_path(@doctor1)
-    within "#patients-#{@patient1.id}" do
-      expect(page).to have_button("Remove Patient")
-    end
-    within "#patients-#{@pateint2.id}" do
-      expect(page).to have_button("Remove Patient")
-    end
-    within "#patients-#{@patient3.id}"do
-      expect(page).to have_button("Remove Patient")
-    end
-    within "#patients-#{@patent4.id}" do
-      expect(page).to have_button("Remove Patient")
+    save_and_open_page
+    within "#patients" do
+      expect(page).to have_button("Remove Patient #{@patient1.id}")
+      expect(page).to have_button("Remove Patient #{@patient2.id}")
+      expect(page).to have_button("Remove Patient #{@patient3.id}")
+      expect(page).to have_button("Remove Patient #{@patient4.id}")
     end
   end
 
-  it 'when I click the button to remove a patient, I am take back to the doctor show page and the patient is no longer listed' do
+  it 'when I click the button to remove a patient, I am taken back to the doctor show page and the patient is no longer listed' do
     visit doctor_path(@doctor1)
-    within "#patients-#{@pateint1.id}" do 
-      click_button("Remove Patient")
+    within "#patients" do 
+      click_button("Remove Patient #{@patient1.id}")
     end
     expect(current_path).to eq(doctor_path(@doctor1))
     within "#patients" do
@@ -89,8 +84,8 @@ RSpec.describe 'Doctor Show Page', type: :feature do
 
   it 'when a patient is deleted from a doctor, they are not deleted from other doctors patients' do
     visit doctor_path(@doctor1)
-    within "#patients-#{@pateint1.id}" do 
-      click_button("Remove Patient")
+    within "#patients" do 
+      click_button("Remove Patient #{@patient1.id}")
     end
 
     visit doctor_path(@doctor2)
