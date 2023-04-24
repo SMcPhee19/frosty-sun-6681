@@ -59,4 +59,48 @@ RSpec.describe 'Doctor Show Page', type: :feature do
       expect(page).to have_content(@patient4.name)
     end
   end
+
+  it 'when in the doctor show page, I see a button next to each patient name to remove that patient from the doctor' do
+    visit doctor_path(@doctor1)
+    within "#patients-#{@patient1.id}" do
+      expect(page).to have_button("Remove Patient")
+    end
+    within "#patients-#{@pateint2.id}" do
+      expect(page).to have_button("Remove Patient")
+    end
+    within "#patients-#{@patient3.id}"do
+      expect(page).to have_button("Remove Patient")
+    end
+    within "#patients-#{@patent4.id}" do
+      expect(page).to have_button("Remove Patient")
+    end
+  end
+
+  it 'when I click the button to remove a patient, I am take back to the doctor show page and the patient is no longer listed' do
+    visit doctor_path(@doctor1)
+    within "#patients-#{@pateint1.id}" do 
+      click_button("Remove Patient")
+    end
+    expect(current_path).to eq(doctor_path(@doctor1))
+    within "#patients" do
+      expect(page).to_not have_content(@patient1.name)
+    end
+  end
+
+  it 'when a patient is deleted from a doctor, they are not deleted from other doctors patients' do
+    visit doctor_path(@doctor1)
+    within "#patients-#{@pateint1.id}" do 
+      click_button("Remove Patient")
+    end
+
+    visit doctor_path(@doctor2)
+    within "#patients" do
+      expect(page).to have_content(@patient1.name)
+    end
+
+    visit doctor_path(@doctor3)
+    within "#patients" do
+      expect(page).to have_content(@patient1.name)
+    end
+  end
 end
