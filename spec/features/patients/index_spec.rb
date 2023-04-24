@@ -40,7 +40,7 @@ RSpec.describe 'Patient Index Page', type: :feature do
       expect(page).to_not have_content(@patient4.name)
     end
   end
-  
+
   it 'when visiting the patient index page, I see the names are in ascending alphabetical order' do
     visit '/patients'
     within '#adult-patients' do

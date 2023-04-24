@@ -73,11 +73,11 @@ RSpec.describe 'Doctor Show Page', type: :feature do
   it 'when I click the button to remove a patient, I am taken back to the doctor show page and the patient is no longer listed' do
     visit doctor_path(@doctor1)
     within "#patients" do 
-      click_button("Remove Patient #{@patient1.id}")
+      click_button("Remove Patient #{@patient2.id}")
     end
     expect(current_path).to eq(doctor_path(@doctor1))
     within "#patients" do
-      expect(page).to_not have_content(@patient1.name)
+      expect(page).to_not have_content(@patient2.name)
     end
   end
   
@@ -86,12 +86,12 @@ RSpec.describe 'Doctor Show Page', type: :feature do
     within "#patients" do 
       click_button("Remove Patient #{@patient1.id}")
     end
-    
+
     visit doctor_path(@doctor2)
     within "#patients" do
       expect(page).to have_content(@patient1.name)
     end
-    
+
     visit doctor_path(@doctor3)
     within "#patients" do
       expect(page).to have_content(@patient1.name)

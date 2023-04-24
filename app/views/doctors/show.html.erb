@@ -11,7 +11,7 @@
   <h3>Patients:</h3>
   <ul>
     <% @doctor.patients.each do |patient| %>
-      <li><%= patient.name %><%= button_to "Remove Patient #{patient.id}", patient_doctor_path, method: :delete %></li>
+      <li><%= patient.name %><%= button_to "Remove Patient #{patient.id}", patient_doctor_path, method: :delete, params: { doctor_id: @doctor.id, patient_id: patient.id }  %></li>
     <% end %>
   </ul>
 </div>
