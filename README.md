@@ -60,12 +60,12 @@ User Story 1, Doctors Show Page
 ​
 As a visitor
 When I visit a doctor's show page
-I see all of that doctor's information including:
- - name
- - specialty
- - university where they got their doctorate
-And I see the name of the hospital where this doctor works
-And I see the names of all of the patients this doctor has
+[] I see all of that doctor's information including:
+ [] - name
+ [] - specialty
+ [] - university where they got their doctorate
+[] And I see the name of the hospital where this doctor works
+[] And I see the names of all of the patients this doctor has
 ```
 ​
 ```
@@ -73,12 +73,12 @@ User Story 2, Remove a Patient from a Doctor
 ​
 As a visitor
 When I visit a Doctor's show page
-Then next to each patient's name, I see a button to remove that patient from that doctor's caseload
-When I click that button for one patient
-I'm brought back to the Doctor's show page
-And I no longer see that patient's name listed
-And when I visit a different doctor's show page that is caring for the same patient,
-Then I see that the patient is still on the other doctor's caseload
+[] Then next to each patient's name, I see a button to remove that patient from that doctor's caseload
+[] When I click that button for one patient
+[] I'm brought back to the Doctor's show page
+[] And I no longer see that patient's name listed
+[] And when I visit a different doctor's show page that is caring for the same patient,
+[] Then I see that the patient is still on the other doctor's caseload
 ```
 
 ```
@@ -86,8 +86,8 @@ User Story 3, Patient Index Page
 ​
 As a visitor
 When I visit the patient index page
-I see the names of all adult patients (age is greater than 18),
-And I see the names are in ascending alphabetical order (A - Z, you do not need to account for capitalization)
+[] I see the names of all adult patients (age is greater than 18),
+[] And I see the names are in ascending alphabetical order (A - Z, you do not need to account for capitalization)
 ```
 ​
 ## Extensions
