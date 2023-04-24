@@ -86,8 +86,8 @@ User Story 3, Patient Index Page
 ​
 As a visitor
 When I visit the patient index page
-[] I see the names of all adult patients (age is greater than 18),
-[] And I see the names are in ascending alphabetical order (A - Z, you do not need to account for capitalization)
+[x] I see the names of all adult patients (age is greater than 18),
+[x] And I see the names are in ascending alphabetical order (A - Z, you do not need to account for capitalization)
 ```
 ​
 ## Extensions
